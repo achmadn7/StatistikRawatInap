@@ -96,23 +96,36 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="page-header">
-                            Dashboard <small>view</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
                         </h2>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Selamat Datang </strong>- Anda login sebagai pengelola !
-                        </div>
+                    <div class="col-lg-6">
+                        <h3 class="box-title">Tambah Kelas</h3>
+                        <br>
+                        <div class="thumbnail" style="background: #f9f9f9;">
+                        <!-- form start -->
+                        <form action="" method="post" accept-charset="utf-8">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>Nama Kelas</label>
+                                    <input class="form-control" placeholder="masukkan nama kelas" name="nama-kelas" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Jumlah Tempat Tidur</label>
+                                    <input class="form-control" placeholder="masukkan jumlah tempat tidur" name="jml-tt" type="text">
+                                </div>
+                              </div><!-- /.box-body -->
+
+                              <div class="box-footer">
+                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                                  <a href="" class="btn btn-success">Kembali</a>
+                              </div>
+                            </form>
+                          </div>
                     </div>
                 </div>
                 <!-- /.row -->

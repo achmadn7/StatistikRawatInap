@@ -96,23 +96,47 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="page-header">
-                            Dashboard <small>view</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
                         </h2>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Selamat Datang </strong>- Anda login sebagai pengelola !
-                        </div>
+                    <div class="col-lg-6">
+                        <h3 class="box-title">Tambah User</h3>
+                        <br>
+                        <div class="thumbnail" style="background: #f9f9f9;">
+                        <!-- form start -->
+                        <form action="" method="post" accept-charset="utf-8">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="masukkan nama" name="nama" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input class="form-control" placeholder="masukkan username" name="username" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="form-control" placeholder="masukkan password" name="password" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="parent" class="form-control">
+                                        <option value="0">Pilih ...</option>
+                                        <option value="">perawat</option><option value="">rekam medis</option><option value="">pimpinan</option>
+                                    </select>
+                                </div>
+                              </div><!-- /.box-body -->
+
+                              <div class="box-footer">
+                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                                  <a href="" class="btn btn-success">Kembali</a>
+                              </div>
+                            </form>
+                          </div>
                     </div>
                 </div>
                 <!-- /.row -->

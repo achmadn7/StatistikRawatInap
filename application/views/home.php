@@ -67,7 +67,7 @@
     	    <div class="col-xs-6 col-md-4">
         	    <div class="form-wrap">
                 <h1>Login</h1>
-                    <form role="form" action="<?php echo base_url()?>admin/dashboard" method="post">
+                    <form role="form" action="<?php echo base_url()?>pengelola/dashboard" method="post">
                         <div class="form-group">
                             <label for="username" class="sr-only">Username</label>
                             <input type="text" name="username" class="form-control" placeholder="Username" required="">

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Informasi Rawat Inap</title>
+    <title>Sistem Informasi Statistik Rawat Inap</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url()?>template/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()?>">Sistem Informasi Rawat Inap</a>
+                <a class="navbar-brand" href="<?php echo base_url()?>admin/dashboard">Sistem Informasi Statistik Rawat Inap</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -64,19 +64,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="<?php echo base_url()?>pengelola/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Data Master <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="user.html">User</a>
+                                <a href="<?php echo base_url()?>pengelola/user">User</a>
                             </li>
                             <li>
-                                <a href="dokter.html">Dokter</a>
+                                <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
                             </li>
                             <li>
-                                <a href="kamar.html">Kamar</a>
+                                <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url()?>pengelola/kelas">Kelas</a>
                             </li>
                         </ul>
                     </li>
@@ -93,23 +96,40 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h2 class="page-header">
-                            Dashboard <small>view</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
                         </h2>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
-                            </li>
-                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Selamat Datang </strong>- Anda login sebagai pengelola !
-                        </div>
+                    <div class="col-lg-6">
+                        <h3 class="box-title">Tambah Dokter</h3>
+                        <br>
+                        <div class="thumbnail" style="background: #f9f9f9;">
+                        <!-- form start -->
+                        <form action="" method="post" accept-charset="utf-8">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>NIK</label>
+                                    <input class="form-control" placeholder="masukkan nik" name="nik" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="masukkan nama" name="nama" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Spesialis</label>
+                                    <input class="form-control" placeholder="masukkan spesialis" name="spesialis" type="password">
+                                </div>
+                              </div><!-- /.box-body -->
+
+                              <div class="box-footer">
+                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                                  <a href="" class="btn btn-success">Kembali</a>
+                              </div>
+                            </form>
+                          </div>
                     </div>
                 </div>
                 <!-- /.row -->
