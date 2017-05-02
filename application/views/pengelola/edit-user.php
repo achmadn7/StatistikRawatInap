@@ -104,25 +104,36 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <h3 class="box-title">Tambah Kelas</h3>
+                        <h3 class="box-title">Edit User</h3>
                         <br>
                         <div class="thumbnail" style="background: #f9f9f9;">
                         <!-- form start -->
                         <form action="" method="post" accept-charset="utf-8">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>Nama Kelas</label>
-                                    <input class="form-control" placeholder="masukkan nama kelas" name="nama-kelas" type="text">
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="masukkan nama" name="nama" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <label>Jumlah Tempat Tidur</label>
-                                    <input class="form-control" placeholder="masukkan jumlah tempat tidur" name="jml-tt" type="text">
+                                    <label>Username</label>
+                                    <input class="form-control" placeholder="masukkan username" name="username" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="form-control" placeholder="masukkan password" name="password" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="parent" class="form-control">
+                                        <option value="0">Pilih ...</option>
+                                        <option value="">perawat</option><option value="">rekam medis</option><option value="">pimpinan</option>
+                                    </select>
                                 </div>
                               </div><!-- /.box-body -->
 
                               <div class="box-footer">
                                   <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="<?php echo base_url()?>pengelola/kelas" class="btn btn-success">Kembali</a>
+                                  <a href="" class="btn btn-success">Kembali</a>
                               </div>
                             </form>
                           </div>

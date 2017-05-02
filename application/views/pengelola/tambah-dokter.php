@@ -126,7 +126,7 @@
 
                               <div class="box-footer">
                                   <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="" class="btn btn-success">Kembali</a>
+                                  <a href="<?php echo base_url()?>pengelola/dokter" class="btn btn-success">Kembali</a>
                               </div>
                             </form>
                           </div>
