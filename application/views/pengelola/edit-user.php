@@ -76,6 +76,9 @@
                                 <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
                             </li>
                             <li>
+                                <a href="<?php echo base_url()?>pengelola/spesialis">Spesialis</a>
+                            </li>
+                            <li>
                                 <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
                             </li>
                             <li>
@@ -104,36 +107,42 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <h3 class="box-title">Edit User</h3>
+                        <h3 class="box-title">Tambah User</h3>
                         <br>
                         <div class="thumbnail" style="background: #f9f9f9;">
                         <!-- form start -->
-                        <form action="" method="post" accept-charset="utf-8">
+                        <?php
+                          form_open('pengelola/user/edit');
+                        ?>
+                        <form method="post" accept-charset="utf-8">
+                            <input type="hidden" name="id" value="<?php echo $row['id_user']; ?>">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Nama</label>
-                                    <input class="form-control" placeholder="masukkan nama" name="nama" type="text">
+                                    <input class="form-control" placeholder="masukkan nama" name="nama" value="<?php echo $row['nama']; ?>" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input class="form-control" placeholder="masukkan username" name="username" type="text">
+                                    <input class="form-control" placeholder="masukkan username" name="username" value="<?php echo $row['username']; ?>" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="form-control" placeholder="masukkan password" name="password" type="password">
+                                    <input class="form-control" placeholder="masukkan password" name="password" value="<?php echo $row['password']; ?>" type="password">
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select name="parent" class="form-control">
-                                        <option value="0">Pilih ...</option>
-                                        <option value="">perawat</option><option value="">rekam medis</option><option value="">pimpinan</option>
+                                    <select name="level" class="form-control">
+                                        <option value="perawat">perawat</option>
+                                        <option value="rm">rekam medis</option>
+                                        <option value="pimpinan">pimpinan</option>
                                     </select>
                                 </div>
                               </div><!-- /.box-body -->
-
                               <div class="box-footer">
-                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="" class="btn btn-success">Kembali</a>
+                                  <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
+                                  <?php
+                                    echo anchor('pengelola/user','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                  ?>
                               </div>
                             </form>
                           </div>
@@ -157,5 +166,4 @@
     <script src="<?php echo base_url()?>template/assets/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>

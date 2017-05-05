@@ -76,6 +76,9 @@
                                 <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
                             </li>
                             <li>
+                                <a href="<?php echo base_url()?>pengelola/spesialis">Spesialis</a>
+                            </li>
+                            <li>
                                 <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
                             </li>
                             <li>
