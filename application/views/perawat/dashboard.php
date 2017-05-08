@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()?>admin/dashboard">Sistem Informasi Statistik Rawat Inap</a>
+                <a class="navbar-brand" href="<?php echo base_url()?>perawat/dashboard">Sistem Informasi Statistik Rawat Inap</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -67,21 +67,24 @@
                         <a href="<?php echo base_url()?>pengelola/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Data Master <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-file"></i> Sensus Harian <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/user">User</a>
+                                <a href="<?php echo base_url()?>perawat/pasienmasuk">Pasien Masuk</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Dipindahkan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Pindahan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/kelas">Kelas</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Keluar</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>perawat/"><i class="fa fa-spinner" aria-hidden="true"></i> Resume Harian</a>
                     </li>
                 </ul>
             </div>
@@ -95,37 +98,24 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                      <h3 class="page-header">
-                          Dashboard <small>Control panel</small>
-                      </h3>
+                        <h3 class="page-header">
+                            Dashboard <small>Control panel</small>
+                        </h3>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h3 class="box-title">Tambah Data Kelas</h3>
-                        <br>
-                        <div class="thumbnail" style="background: #f9f9f9;">
-                        <!-- form start -->
-                        <form action="" method="post" accept-charset="utf-8">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>Nama Kelas</label>
-                                    <input class="form-control" placeholder="masukkan nama kelas" name="nama-kelas" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jumlah Tempat Tidur</label>
-                                    <input class="form-control" placeholder="masukkan jumlah tempat tidur" name="jml-tt" type="text">
-                                </div>
-                              </div><!-- /.box-body -->
-
-                              <div class="box-footer">
-                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="<?php echo base_url()?>pengelola/kelas" class="btn btn-success">Kembali</a>
-                              </div>
-                            </form>
-                          </div>
+                    <div class="col-lg-12">
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="fa fa-info-circle"></i>  <strong>Selamat Datang </strong>- Anda login sebagai perawat !
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->

@@ -6,14 +6,13 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		if ($this->session->userdata('level') == 'pengelola')
+		if ($this->session->userdata('level') == 'perawat')
 		{
-			$this->load->view('pengelola/dashboard');
+			$this->load->view('perawat/dashboard');
 		}
 		else
 		{
 			redirect('home');
 		}
 	}
-
 }

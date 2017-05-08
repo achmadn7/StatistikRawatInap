@@ -61,7 +61,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -80,6 +80,9 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url()?>pengelola/spesialis">Spesialis</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
@@ -101,18 +104,20 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
+                        <h3 class="page-header">
                             <small><i class="fa fa-fw fa-arrows-v"></i>Data Ruang</small>
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="<?php echo base_url()?>pengelola/tambahruang" type="button" class="btn btn-success">Tambah</a>
+                          <?php
+                            echo anchor('pengelola/ruang/post','Tambah',array('class'=>'btn btn-success btn-sm'));
+                          ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -123,7 +128,8 @@
                                         <th>Nama Ruang</th>
                                         <th>Kelas</th>
                                         <th>Jumlah TT</th>
-                                        <th>Aksi</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -135,7 +141,8 @@
                                            <td>$r->nama_ruang</td>
                                            <td>$r->nama_kelas</td>
                                            <td>$r->jml_tt</td>
-                                           <td><a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Edit</a> | <a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Delete</a></td>
+                                           <td width='10'>".anchor("pengelola/ruang/edit/".$r->id_ruang,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                           <td width='10'>".anchor("pengelola/ruang/delete/".$r->id_ruang,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
                                      </tr>";
                                      $no++;
                                    }

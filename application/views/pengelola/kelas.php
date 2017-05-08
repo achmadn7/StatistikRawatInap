@@ -61,7 +61,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -80,6 +80,9 @@
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url()?>pengelola/spesialis">Spesialis</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
@@ -101,18 +104,17 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
+                        <h3 class="page-header">
                             <small><i class="fa fa-fw fa-arrows-v"></i>Data Kelas</small>
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="<?php echo base_url()?>pengelola/tambahkelas" type="button" class="btn btn-success">Tambah</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -121,7 +123,8 @@
                                     <tr>
                                         <th>No`</th>
                                         <th>Kelas</th>
-                                        <th>Aksi</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -131,7 +134,8 @@
                                      echo "<tr class='odd gradeX'>
                                            <td>$no</td>
                                            <td>$r->nama_kelas</td>
-                                           <td><a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Edit</a> | <a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Delete</a></td>
+                                           <td width='10'>".anchor("pengelola/kelas/edit/".$r->id_kelas,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                           <td width='10'>".anchor("pengelola/kelas/delete/".$r->id_kelas,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
                                      </tr>";
                                      $no++;
                                    }
@@ -144,7 +148,34 @@
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.col-lg-6-->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Tambah Data</h4>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                          <!-- form start -->
+                          <?php
+                            form_open('pengelola/kelas/post');
+                          ?>
+                          <form method="post" accept-charset="utf-8">
+                              <div class="box-body">
+                                  <div class="form-group">
+                                      <label>Kelas</label>
+                                      <input class="form-control" placeholder="masukkan nama kelas" name="nama_kelas" type="text" required>
+                                  </div>
+                              </div><!-- /.box-body -->
+                              <div class="box-footer">
+                                    <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
+                              </div>
+                          </form>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
             </div>
 
             </div>

@@ -55,7 +55,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -95,42 +95,58 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
-                        </h2>
+                      <h3 class="page-header">
+                          Dashboard <small>Control panel</small>
+                      </h3>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h3 class="box-title">Tambah Dokter</h3>
-                        <br>
-                        <div class="thumbnail" style="background: #f9f9f9;">
-                        <!-- form start -->
-                        <form action="" method="post" accept-charset="utf-8">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>NIK</label>
-                                    <input class="form-control" placeholder="masukkan nik" name="nik" type="text">
+                  <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                              <h4>Tambah Data Ruang</h4>
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                            <!-- form start -->
+                            <?php
+                              form_open('pengelola/dokter/post');
+                            ?>
+                            <form method="post" accept-charset="utf-8">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>NIK</label>
+                                        <input class="form-control" placeholder="masukkan nik" name="nik" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <input class="form-control" placeholder="masukkan nama" name="nama" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Spesialis</label>
+                                        <select name="spesialis" class="form-control">
+                                            <?php
+                                            foreach ($spesialis as $s) {
+                                              echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer">
+                                      <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
+                                      <?php
+                                        echo anchor('pengelola/dokter','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                      ?>
                                 </div>
-                                <div class="form-group">
-                                    <label>Nama</label>
-                                    <input class="form-control" placeholder="masukkan nama" name="nama" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label>Spesialis</label>
-                                    <input class="form-control" placeholder="masukkan spesialis" name="spesialis" type="password">
-                                </div>
-                              </div><!-- /.box-body -->
-
-                              <div class="box-footer">
-                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="<?php echo base_url()?>pengelola/dokter" class="btn btn-success">Kembali</a>
-                              </div>
                             </form>
                           </div>
-                    </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  </div>
                 </div>
                 <!-- /.row -->
 

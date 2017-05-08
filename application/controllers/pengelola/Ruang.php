@@ -11,7 +11,46 @@ class Ruang extends CI_Controller {
 
 	public function index()
 	{
-		$data['record']= $this->mod_ruang->select_all()->result();
-		$this->load->view('pengelola/ruang',$data);
+		if ($this->session->userdata('level') == 'pengelola')
+		{
+			$data['record']= $this->mod_ruang->select_all()->result();
+			$this->load->view('pengelola/ruang',$data);
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
+
+	function post()
+	{
+		if (isset($_POST['submit'])) {
+				$this->mod_ruang->save();
+				redirect('pengelola/ruang');
+		}else {
+			$data['kelas']= $this->mod_ruang->select_kelas()->result();
+			$this->load->view('pengelola/tambah-ruang',$data);
+		}
+	}
+
+	function edit()
+	{
+		if (isset($_POST['submit'])) {
+				$this->mod_ruang->update();
+				redirect('pengelola/ruang');
+		}else {
+				$id          = $this->uri->segment(4);
+				$data['row'] = $this->db->get_where('tbl_ruang',array('id_ruang'=>$id))->row_array();
+				$data['kelas']= $this->mod_ruang->select_kelas()->result();
+				$this->load->view('pengelola/edit-ruang',$data);
+		}
+	}
+
+	function delete()
+	{
+		$this->db->where('id_ruang',$this->uri->segment(4));
+		$this->db->delete('tbl_ruang');
+		redirect('pengelola/ruang');
+	}
+
 }

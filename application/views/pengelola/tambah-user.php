@@ -55,7 +55,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -98,16 +98,16 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
-                        </h2>
+                      <h3 class="page-header">
+                          Dashboard <small>Control panel</small>
+                      </h3>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <h3 class="box-title">Tambah User</h3>
+                        <h3 class="box-title">Tambah Data User</h3>
                         <br>
                         <div class="thumbnail" style="background: #f9f9f9;">
                         <!-- form start -->

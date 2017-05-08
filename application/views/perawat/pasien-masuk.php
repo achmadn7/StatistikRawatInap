@@ -73,24 +73,24 @@
                         <a href="<?php echo base_url()?>pengelola/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Data Master <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-file"></i> Sensus Harian <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/user">User</a>
+                                <a href="<?php echo base_url()?>perawat/pasienmasuk">Pasien Masuk</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/dokter">Dokter</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Dipindahkan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/spesialis">Spesialis</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Pindahan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>pengelola/ruang">Ruang</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url()?>pengelola/kelas">Kelas</a>
+                                <a href="<?php echo base_url()?>perawat/">Pasien Keluar</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>perawat/"><i class="fa fa-spinner" aria-hidden="true"></i> Resume Harian</a>
                     </li>
                 </ul>
             </div>
@@ -105,40 +105,49 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Data Spesialis</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
                         </h3>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                            <?php
+                              echo anchor('perawat/pasienmasuk/post','Tambah',array('class'=>'btn btn-success btn-sm'));
+                            ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>No`</th>
-                                        <th>Spesialis</th>
+                                        <th>No</th>
+                                        <th>No.RM</th>
+                                        <th>Nama Paien</th>
+                                        <th>Kelas</th>
+                                        <th>Jenis Spesialis</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <?php
-                                   $no=1;
-                                   foreach ($record as $r) {
-                                     echo "<tr class='odd gradeX'>
-                                           <td>$no</td>
-                                           <td>$r->nama_spesialis</td>
-                                           <td width='10'>".anchor("pengelola/spesialis/edit/".$r->id_spesialis,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
-                                           <td width='10'>".anchor("pengelola/spesialis/delete/".$r->id_spesialis,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
-                                     </tr>";
-                                     $no++;
-                                   }
+                                   <?php
+                                    $no=1;
+                                    foreach ($record as $r) {
+                                      echo "<tr class='odd gradeX'>
+                                            <td>$no</td>
+                                            <td></td>
+                                            <td>$r->nama_pasien</td>
+                                            <td></td>
+                                            <td width='10'>".anchor("perawat/pasien-masuk/edit/".$r->id_user,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                            <td width='10'>".anchor("pengelola/pasien-masuk/delete/".$r->id_user,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
+
+                                      </tr>";
+                                      $no++;
+                                    }
                                    ?>
                                 </tbody>
                             </table>
@@ -148,37 +157,10 @@
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4>Edit Data</h4>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                          <!-- form start -->
-                          <?php
-                            form_open('pengelola/spesialis/post');
-                          ?>
-                          <form method="post" accept-charset="utf-8">
-                              <input type="hidden" name="id" value="<?php echo $row['id_spesialis']; ?>">
-                              <div class="box-body">
-                                  <div class="form-group">
-                                      <label>Spesialis</label>
-                                      <input class="form-control" value="<?php echo $row['nama_spesialis']; ?>" name="spesialis" type="text">
-                                  </div>
-                              </div><!-- /.box-body -->
-                              <div class="box-footer">
-                                    <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
-                              </div>
-                          </form>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
+                <!-- /.col-lg-12 -->
             </div>
-          </div>
+
+            </div>
             <!-- /.container-fluid -->
 
         </div>

@@ -11,8 +11,15 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		$data['record']= $this->mod_user->select_all()->result();
-		$this->load->view('pengelola/user',$data);
+		if ($this->session->userdata('level') == 'pengelola')
+		{
+			$data['record']= $this->mod_user->select_all()->result();
+			$this->load->view('pengelola/user',$data);
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 
 	function post()

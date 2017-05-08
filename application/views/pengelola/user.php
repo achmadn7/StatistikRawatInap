@@ -61,7 +61,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -104,9 +104,9 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
+                        <h3 class="page-header">
                             <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <!-- /.row -->

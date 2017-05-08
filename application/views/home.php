@@ -67,18 +67,19 @@
     	    <div class="col-xs-6 col-md-4">
         	    <div class="form-wrap">
                 <h1>Login</h1>
-                    <form role="form" action="<?php echo base_url()?>pengelola/dashboard" method="post">
-                        <div class="form-group">
-                            <label for="username" class="sr-only">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="sr-only">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required="">
-                        </div>
-                        <input type="submit" class="btn btn-custom btn-lg btn-block" value="Login">
-                    </form>
-                    <hr>
+                
+                <form role="form" action="<?php echo base_url()?>home/validasi" method="post">
+                  <div class="form-group">
+                      <label for="username" class="sr-only">Username</label>
+                      <input type="text" name="username" class="form-control" placeholder="Username" required="">
+                  </div>
+                  <div class="form-group">
+                      <label for="password" class="sr-only">Password</label>
+                      <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                  </div>
+                  <input type="submit" class="btn btn-custom btn-lg btn-block" value="Login">
+                </form>
+                <hr>
         	    </div>
     		</div> <!-- /.col-xs-12 -->
     	</div> <!-- /.row -->

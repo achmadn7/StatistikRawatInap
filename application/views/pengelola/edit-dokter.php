@@ -103,30 +103,52 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h3 class="box-title">Tambah Data Kelas</h3>
-                        <br>
-                        <div class="thumbnail" style="background: #f9f9f9;">
-                        <!-- form start -->
-                        <form action="" method="post" accept-charset="utf-8">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>Nama Kelas</label>
-                                    <input class="form-control" placeholder="masukkan nama kelas" name="nama-kelas" type="text">
+                  <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                              <h4>Tambah Data Ruang</h4>
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                            <!-- form start -->
+                            <?php
+                              form_open('pengelola/dokter/edit');
+                            ?>
+                            <form method="post" accept-charset="utf-8">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>NIK</label>
+                                        <input class="form-control" value="<?php echo $row['id_dokter'];?>" name="nik" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama</label>
+                                        <input class="form-control" value="<?php echo $row['nama'];?>" name="nama" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Spesialis</label>
+                                        <select name="spesialis" class="form-control">
+                                          <?php
+                                          foreach ($spesialis as $s){
+                                                  echo "<option value='$s->id_spesialis' ";
+                                                  echo $s->id_spesialis==$row['id_spesialis']?'selected':'';
+                                                  echo">$s->nama_spesialis</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer">
+                                      <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
+                                      <?php
+                                        echo anchor('pengelola/dokter','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                      ?>
                                 </div>
-                                <div class="form-group">
-                                    <label>Jumlah Tempat Tidur</label>
-                                    <input class="form-control" placeholder="masukkan jumlah tempat tidur" name="jml-tt" type="text">
-                                </div>
-                              </div><!-- /.box-body -->
-
-                              <div class="box-footer">
-                                  <button type="submit" name="submit" class="btn btn-success">Submit</button>
-                                  <a href="<?php echo base_url()?>pengelola/kelas" class="btn btn-success">Kembali</a>
-                              </div>
                             </form>
                           </div>
-                    </div>
+                          <!-- /.panel-body -->
+                      </div>
+                      <!-- /.panel -->
+                  </div>
                 </div>
                 <!-- /.row -->
 

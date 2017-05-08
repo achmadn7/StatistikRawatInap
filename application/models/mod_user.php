@@ -5,6 +5,12 @@
   class mod_user extends ci_model
   {
 
+    function login($data)
+    {
+      $query= $this->db->get_where('tbl_user',$data);
+      return $query;
+    }
+
     function select_all()
     {
       return $this->db->get('tbl_user');

@@ -61,7 +61,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -104,9 +104,9 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
+                        <h3 class="page-header">
                             <small><i class="fa fa-fw fa-arrows-v"></i>Data Dokter</small>
-                        </h2>
+                        </h3>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -115,17 +115,21 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="<?php echo base_url()?>pengelola/tambahdokter" type="button" class="btn btn-success">Tambah</a>
+                          <?php
+                            echo anchor('pengelola/dokter/post','Tambah',array('class'=>'btn btn-success btn-sm'));
+                          ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Spesialis</th>
-                                        <th>Aksi</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,7 +141,8 @@
                                            <td>$r->id_dokter</td>
                                            <td>$r->nama</td>
                                            <td>$r->nama_spesialis</td>
-                                           <td><a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Edit</a> | <a href='<?php echo base_url()?>pengelola/' type='button' class='btn btn-success'>Delete</a></td>
+                                           <td width='10'>".anchor("pengelola/dokter/edit/".$r->id_dokter,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                           <td width='10'>".anchor("pengelola/dokter/delete/".$r->id_dokter,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
                                      </tr>";
                                      $no++;
                                    }

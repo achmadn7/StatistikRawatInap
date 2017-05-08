@@ -55,7 +55,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="<?php echo base_url()?>home"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="<?php echo base_url()?>home/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -98,9 +98,9 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="page-header">
-                            Dashboard <small>view</small>
-                        </h2>
+                        <h3 class="page-header">
+                            Dashboard <small>Control panel</small>
+                        </h3>
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> Dashboard

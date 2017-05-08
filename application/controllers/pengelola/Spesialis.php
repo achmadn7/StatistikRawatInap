@@ -11,14 +11,21 @@ class Spesialis extends CI_Controller {
 
 	public function index()
 	{
-		$data['record']= $this->mod_spesialis->select_all()->result();
-		$this->load->view('pengelola/spesialis',$data);
+		if ($this->session->userdata('level') == 'pengelola')
+		{
+			$data['record']= $this->mod_spesialis->select_all()->result();
+			$this->load->view('pengelola/spesialis',$data);
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 
 	function post()
 	{
 			$this->mod_user->save();
-			
+
 	}
 
 	function edit()
