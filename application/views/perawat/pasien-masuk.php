@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()?>pengelola/dashboard">Sistem Informasi Statistik Rawat Inap</a>
+                <a class="navbar-brand" href="<?php echo base_url()?>perawat/dashboard">Sistem Informasi Statistik Rawat Inap</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -70,7 +70,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="<?php echo base_url()?>pengelola/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="<?php echo base_url()?>perawat/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-file"></i> Sensus Harian <i class="fa fa-fw fa-caret-down"></i></a>
@@ -129,6 +129,8 @@
                                         <th>Nama Paien</th>
                                         <th>Kelas</th>
                                         <th>Jenis Spesialis</th>
+                                        <th>Hari</th>
+                                        <th>Tanggal Masuk</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -143,8 +145,10 @@
                                             <td>$r->nama_pasien</td>
                                             <td>$r->nama_kelas</td>
                                             <td>$r->nama_spesialis</td>
-                                            <td width='10'>".anchor("perawat/pasien-masuk/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
-                                            <td width='10'>".anchor("pengelola/pasien-masuk/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
+                                            <td>$r->hari</td>
+                                            <td>$r->tgl_masuk</td>
+                                            <td width='10'>".anchor("perawat/pasienmasuk/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                            <td width='10'>".anchor("pengelola/pasienmasuk/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
 
                                       </tr>";
                                       $no++;

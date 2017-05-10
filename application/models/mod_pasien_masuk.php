@@ -23,5 +23,37 @@
       return $this->db->get_where('tbl_kelas');
     }
 
+    function select_spesialis()
+    {
+      return $this->db->get_where('tbl_spesialis');
+    }
+
+    function save()
+    {
+      $data=array(
+                  'no_rm'       => $this->input->post('no_rm'),
+                  'nama_pasien' => $this->input->post('nama_pasien'),
+                  'id_ruang'    => $this->input->post('ruang'),
+                  'id_kelas'    => $this->input->post('kelas'),
+                  'id_spesialis'=> $this->input->post('spesialis'),
+                  'hari'        => $this->input->post('hari'),
+                  'tgl_masuk'   => $this->input->post('tgl_masuk'));
+      $this->db->insert('tbl_pasien_masuk',$data);
+    }
+
+    function update()
+    {
+      $data=array(
+                  'no_rm'       => $this->input->post('no_rm'),
+                  'nama_pasien' => $this->input->post('nama_pasien'),
+                  'id_ruang'    => $this->input->post('ruang'),
+                  'id_kelas'    => $this->input->post('kelas'),
+                  'id_spesialis'=> $this->input->post('spesialis'),
+                  'hari'        => $this->input->post('hari'),
+                  'tgl_masuk'   => $this->input->post('tgl_masuk'));
+      $this->db->where('no_rm',$this->input->post('id'));
+      $this->db->update('tbl_pasien_masuk',$data);
+    }
+
   }
  ?>
