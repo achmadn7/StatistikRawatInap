@@ -22,5 +22,17 @@ class PasienMasuk extends CI_Controller {
 		}
 	}
 
+	function post()
+	{
+			if (isset($_POST['submit'])) {
+					$this->mod_pasien_masuk->save();
+					redirect('perawat/pasien-masuk');
+			}else {
+				$data['ruang']= $this->mod_pasien_masuk->select_ruang()->result();
+				$data['kelas']= $this->mod_pasien_masuk->select_kelas()->result();
+				$this->load->view('perawat/tambah-pmasuk',$data);
+			}
+	}
+
 
 }

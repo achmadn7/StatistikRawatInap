@@ -105,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Data User</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Pasien Masuk</small>
                         </h3>
                     </div>
                 </div>
@@ -139,11 +139,12 @@
                                     foreach ($record as $r) {
                                       echo "<tr class='odd gradeX'>
                                             <td>$no</td>
-                                            <td></td>
+                                            <td>$r->no_rm</td>
                                             <td>$r->nama_pasien</td>
-                                            <td></td>
-                                            <td width='10'>".anchor("perawat/pasien-masuk/edit/".$r->id_user,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
-                                            <td width='10'>".anchor("pengelola/pasien-masuk/delete/".$r->id_user,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
+                                            <td>$r->nama_kelas</td>
+                                            <td>$r->nama_spesialis</td>
+                                            <td width='10'>".anchor("perawat/pasien-masuk/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                            <td width='10'>".anchor("pengelola/pasien-masuk/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
 
                                       </tr>";
                                       $no++;
