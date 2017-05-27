@@ -82,13 +82,13 @@
                                 <a href="<?php echo base_url()?>perawat/pasienmasuk">Pasien Masuk</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>perawat/">Pasien Dipindahkan</a>
+                                <a href="<?php echo base_url()?>perawat/pasienpindahan">Pasien Pindahan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>perawat/">Pasien Pindahan</a>
+                                <a href="<?php echo base_url()?>perawat/pasiendipindahkan">Pasien Dipindahkkan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>perawat/">Pasien Keluar</a>
+                                <a href="<?php echo base_url()?>perawat/pasienkeluar">Pasien Keluar</a>
                             </li>
                         </ul>
                     </li>

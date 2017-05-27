@@ -24,33 +24,51 @@ class Dokter extends CI_Controller {
 
 	function post()
 	{
-		if (isset($_POST['submit'])) {
-				$this->mod_dokter->save();
-				redirect('pengelola/dokter');
-		}else {
-			$data['spesialis']= $this->mod_dokter->select_spesialis()->result();
-			$this->load->view('pengelola/tambah-dokter',$data);
+		if ($this->session->userdata('level') == 'pengelola') {
+				if (isset($_POST['submit'])) {
+						$this->mod_dokter->save();
+						redirect('pengelola/dokter');
+				}else {
+					$data['spesialis']= $this->mod_dokter->select_spesialis()->result();
+					$this->load->view('pengelola/tambah-dokter',$data);
+				}
+		}
+		else
+		{
+			redirect('home');
 		}
 	}
 
 	function edit()
 	{
-		if (isset($_POST['submit'])) {
-				$this->mod_dokter->update();
-				redirect('pengelola/dokter');
-		}else {
-				$id          = $this->uri->segment(4);
-				$data['row'] = $this->db->get_where('tbl_dokter',array('id_dokter'=>$id))->row_array();
-				$data['spesialis']= $this->mod_dokter->select_spesialis()->result();
-				$this->load->view('pengelola/edit-dokter',$data);
+		if ($this->session->userdata('level') == 'pengelola') {
+				if (isset($_POST['submit'])) {
+						$this->mod_dokter->update();
+						redirect('pengelola/dokter');
+				}else {
+						$id          = $this->uri->segment(4);
+						$data['row'] = $this->db->get_where('tbl_dokter',array('id_dokter'=>$id))->row_array();
+						$data['spesialis']= $this->mod_dokter->select_spesialis()->result();
+						$this->load->view('pengelola/edit-dokter',$data);
+				}
+		}
+		else
+		{
+			redirect('home');
 		}
 	}
 
 	function delete()
 	{
-		$this->db->where('id_dokter',$this->uri->segment(4));
-		$this->db->delete('tbl_dokter');
-		redirect('pengelola/dokter');
+		if ($this->session->userdata('level') == 'pengelola') {	
+				$this->db->where('id_dokter',$this->uri->segment(4));
+				$this->db->delete('tbl_dokter');
+				redirect('pengelola/dokter');
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 
 }

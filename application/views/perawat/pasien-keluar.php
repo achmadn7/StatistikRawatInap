@@ -128,7 +128,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Pasien Masuk</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Pasien Keluar</small>
                         </h3>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                       <div class="panel panel-default">
                           <div class="panel-heading">
                               <?php
-                                echo anchor('perawat/pasienmasuk/post','Tambah',array('class'=>'btn btn-success btn-sm'));
+                                echo anchor('perawat/pasienkeluar/post','Tambah',array('class'=>'btn btn-success btn-sm'));
                               ?>
                           </div>
                           <!-- /.panel-heading -->
@@ -164,12 +164,13 @@
                                       <tr>
                                           <th>No</th>
                                           <th>No.RM</th>
-                                          <th>Nama Paien</th>
+                                          <th>Nama Pasien</th>
                                           <th>Ruang</th>
                                           <th>Kelas</th>
-                                          <th>Jenis Spesialis</th>
-                                          <th>Hari</th>
                                           <th>Tanggal Masuk</th>
+                                          <th>Jenis Spesialis</th>
+                                          <th>Cara Keluar</th>
+                                          <th>Tanggal Keluar</th>
                                           <th></th>
                                           <th></th>
                                       </tr>
@@ -184,11 +185,12 @@
                                               <td>$r->nama_pasien</td>
                                               <td>$r->nama_ruang</td>
                                               <td>$r->nama_kelas</td>
-                                              <td>$r->nama_spesialis</td>
-                                              <td>$r->hari</td>
                                               <td>$r->tgl_masuk</td>
-                                              <td width='10'>".anchor("perawat/pasienmasuk/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
-                                              <td width='10'>".anchor("perawat/pasienmasuk/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
+                                              <td>$r->nama_spesialis</td>
+                                              <td>$r->cara_keluar</td>
+                                              <td>$r->tgl_keluar</td>
+                                              <td width='10'>".anchor("perawat/pasienkeluar/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                              <td width='10'>".anchor("perawat/pasienkeluar/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
 
                                         </tr>";
                                         $no++;

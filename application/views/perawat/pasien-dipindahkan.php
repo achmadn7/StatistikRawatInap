@@ -33,29 +33,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-      function showRuang(str) {
-          if (str == "") {
-              document.getElementById("txtHint").innerHTML = "";
-              return;
-          } else {
-              if (window.XMLHttpRequest) {
-                  // code for IE7+, Firefox, Chrome, Opera, Safari
-                  xmlhttp = new XMLHttpRequest();
-              } else {
-                  // code for IE6, IE5
-                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                      document.getElementById("txtHint").innerHTML = this.responseText;
-                  }
-              };
-              xmlhttp.open("GET","perawat/pasienmasuk/seleksi/"+str,true);
-              xmlhttp.send();
-          }
-      }
-    </script>
 </head>
 
 <body>
@@ -128,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="page-header">
-                            <small><i class="fa fa-fw fa-arrows-v"></i>Pasien Masuk</small>
+                            <small><i class="fa fa-fw fa-arrows-v"></i>Pasien Dipindahkan</small>
                         </h3>
                     </div>
                 </div>
@@ -154,7 +131,7 @@
                       <div class="panel panel-default">
                           <div class="panel-heading">
                               <?php
-                                echo anchor('perawat/pasienmasuk/post','Tambah',array('class'=>'btn btn-success btn-sm'));
+                                echo anchor('perawat/pasiendipindahkan/post','Tambah',array('class'=>'btn btn-success btn-sm'));
                               ?>
                           </div>
                           <!-- /.panel-heading -->
@@ -165,11 +142,12 @@
                                           <th>No</th>
                                           <th>No.RM</th>
                                           <th>Nama Paien</th>
-                                          <th>Ruang</th>
                                           <th>Kelas</th>
+                                          <th>Ke Ruang</th>
+                                          <th>Ke Kelas</th>
                                           <th>Jenis Spesialis</th>
                                           <th>Hari</th>
-                                          <th>Tanggal Masuk</th>
+                                          <th>Tanggal Dipindahkan</th>
                                           <th></th>
                                           <th></th>
                                       </tr>
@@ -182,13 +160,14 @@
                                               <td>$no</td>
                                               <td>$r->no_rm</td>
                                               <td>$r->nama_pasien</td>
-                                              <td>$r->nama_ruang</td>
                                               <td>$r->nama_kelas</td>
+                                              <td>$r->ke_ruang</td>
+                                              <td>$r->ke_kelas</td>
                                               <td>$r->nama_spesialis</td>
                                               <td>$r->hari</td>
-                                              <td>$r->tgl_masuk</td>
-                                              <td width='10'>".anchor("perawat/pasienmasuk/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
-                                              <td width='10'>".anchor("perawat/pasienmasuk/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
+                                              <td>$r->tgl_dipindahkan</td>
+                                              <td width='10'>".anchor("perawat/pasiendipindahkan/edit/".$r->no_rm,"<span class='fa fa-pencil-square-o' aria-hidden='true'></span>",array('title'=>'edit data'))."</td>
+                                              <td width='10'>".anchor("perawat/pasiendipindahkan/delete/".$r->no_rm,"<span class='glyphicon glyphicon-trash' aria-hidden='true'></span>",array('title'=>'delete data'))."</td>
 
                                         </tr>";
                                         $no++;
@@ -203,7 +182,7 @@
                       <!-- /.panel -->
                   </div>
                   <!-- /.col-lg-12 -->
-                </div>
+            </div>
 
             </div>
             <!-- /.container-fluid -->

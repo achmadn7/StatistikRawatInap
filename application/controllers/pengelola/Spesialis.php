@@ -24,28 +24,45 @@ class Spesialis extends CI_Controller {
 
 	function post()
 	{
-			$this->mod_user->save();
-
+			if ($this->session->userdata('level') == 'pengelola') {
+					$this->mod_user->save();
+			}
+			else
+			{
+				redirect('home');
+			}
 	}
 
 	function edit()
 	{
-		if (isset($_POST['submit'])) {
-				$this->mod_spesialis->update();
-				redirect('pengelola/spesialis');
-		}else {
-				$data['record']= $this->mod_spesialis->select_all()->result();
-				$id          = $this->uri->segment(4);
-				$data['row'] = $this->db->get_where('tbl_spesialis',array('id_spesialis'=>$id))->row_array();
-				$this->load->view('pengelola/edit-spesialis',$data);
+		if ($this->session->userdata('level') == 'pengelola') {
+				if (isset($_POST['submit'])) {
+						$this->mod_spesialis->update();
+						redirect('pengelola/spesialis');
+				}else {
+						$data['record']= $this->mod_spesialis->select_all()->result();
+						$id          = $this->uri->segment(4);
+						$data['row'] = $this->db->get_where('tbl_spesialis',array('id_spesialis'=>$id))->row_array();
+						$this->load->view('pengelola/edit-spesialis',$data);
+				}
+		}
+		else
+		{
+			redirect('home');
 		}
 	}
 
 	function delete()
 	{
-		$this->db->where('id_spesialis',$this->uri->segment(4));
-		$this->db->delete('tbl_spesialis');
-		redirect('pengelola/spesialis');
+		if ($this->session->userdata('level') == 'pengelola') {
+				$this->db->where('id_spesialis',$this->uri->segment(4));
+				$this->db->delete('tbl_spesialis');
+				redirect('pengelola/spesialis');
+		}
+		else
+		{
+			redirect('home');
+		}
 	}
 
 }

@@ -118,7 +118,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <small>Pasien Masuk Ruang Rawat Inap</small>
+                            <small>Pasien Keluar Ruang Rawat Inap</small>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -161,9 +161,9 @@
                                   </div>
                                   <div class="col-lg-4">
                                     <div class="form-group">
-                                      <label>Tanggal</label>
+                                      <label>Tanggal Keluar</label>
                                       <div class="input-append date form_datetime">
-                                          <input class="form-control" type="text" name="tgl_masuk" value="" readonly>
+                                          <input class="form-control" type="text" name="tgl_keluar" value="" readonly>
                                           <span class="add-on"><i class="icon-th"></i></span>
                                       </div>
                                     </div>
@@ -176,48 +176,6 @@
                                   </div>
                                 </div>
                                 <div class="col-lg-12">
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>TT Tersedia :</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS I</label>
-                                      <input class="form-control" value="30" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS II</label>
-                                      <input class="form-control" value="35" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS III</label>
-                                      <input class="form-control" value="104" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VIP</label>
-                                      <input class="form-control" value="55" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VVIP 1</label>
-                                      <input class="form-control" value="34" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2"></div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VVIP 2</label>
-                                      <input class="form-control" value="10" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
                                   <div class="col-lg-6">
                                     <div class="form-group">
                                       <label>No.RM</label>
@@ -238,6 +196,23 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Tanggal Masuk</label>
+                                        <div class="input-append date form_datetime">
+                                            <input class="form-control" type="text" name="tgl_masuk" value="" readonly>
+                                            <span class="add-on"><i class="icon-th"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cara Keluar</label>
+                                        <select name="spesialis" class="form-control">
+                                          <?php
+                                          foreach ($spesialis as $s) {
+                                            echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Jenis Spesialis</label>
                                         <select name="spesialis" class="form-control">
                                           <?php
@@ -252,7 +227,7 @@
                                     <div class="box-footer">
                                         <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
                                         <?php
-                                          echo anchor('perawat/pasienmasuk','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                          echo anchor('perawat/pasienkeluar','Kembali',array('class'=>'btn btn-success btn-sm'));
                                         ?>
                                     </div>
                                   </div>

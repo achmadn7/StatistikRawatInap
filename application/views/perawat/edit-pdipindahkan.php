@@ -85,7 +85,7 @@
                                 <a href="<?php echo base_url()?>perawat/pasienpindahan">Pasien Pindahan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>perawat/pasiendipindahkan">Pasien Dipindahkan</a>
+                                <a href="<?php echo base_url()?>perawat/pasiendipindahkan">Pasien Dipindahkkan</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>perawat/pasienkeluar">Pasien Keluar</a>
@@ -118,7 +118,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <small>Pasien Masuk Ruang Rawat Inap</small>
+                            <small>Pasien Dipindahkan Ruang Rawat Inap</small>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -133,10 +133,11 @@
                                     <div class="form-group">
                                       <label>Ruang Rawat Inap</label>
                                       <select name="ruang" class="form-control">
-                                        <option value="">--- Pilih ---</option>
                                         <?php
-                                        foreach ($ruang as $r) {
-                                          echo "<option value='$r->id_ruang'>$r->nama_ruang</option>";
+                                        foreach ($ruang as $r){
+                                                echo "<option value='$r->id_ruang' ";
+                                                echo $r->id_ruang==$row['id_ruang']?'selected':'';
+                                                echo">$r->nama_ruang</option>";
                                         }
                                         ?>
                                       </select>
@@ -163,7 +164,7 @@
                                     <div class="form-group">
                                       <label>Tanggal</label>
                                       <div class="input-append date form_datetime">
-                                          <input class="form-control" type="text" name="tgl_masuk" value="" readonly>
+                                          <input class="form-control" type="text" value="<?php echo $row['tgl_dipindahkan'];?>" name="tgl_dipindahkan" value="" readonly>
                                           <span class="add-on"><i class="icon-th"></i></span>
                                       </div>
                                     </div>
@@ -176,63 +177,49 @@
                                   </div>
                                 </div>
                                 <div class="col-lg-12">
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>TT Tersedia :</label>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS I</label>
-                                      <input class="form-control" value="30" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS II</label>
-                                      <input class="form-control" value="35" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS III</label>
-                                      <input class="form-control" value="104" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VIP</label>
-                                      <input class="form-control" value="55" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VVIP 1</label>
-                                      <input class="form-control" value="34" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-2"></div>
-                                  <div class="col-lg-2">
-                                    <div class="form-group">
-                                      <label>KLS VVIP 2</label>
-                                      <input class="form-control" value="10" name="jml_tt" type="text" required>
-                                    </div>
-                                  </div>
                                   <div class="col-lg-6">
                                     <div class="form-group">
                                       <label>No.RM</label>
-                                      <input class="form-control" name="no_rm" type="text" required>
+                                      <input class="form-control" value="<?php echo $row['no_rm'];?>" name="no_rm" type="text" required>
                                     </div>
                                     <div class="form-group">
                                       <label>Nama Pasien</label>
-                                      <input class="form-control" name="nama_pasien" type="text" required>
+                                      <input class="form-control" value="<?php echo $row['nama_pasien'];?>" name="nama_pasien" type="text" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Kelas</label>
                                         <select name="kelas" class="form-control">
                                           <?php
+                                          foreach ($kelas as $k){
+                                                  echo "<option value='$k->id_kelas' ";
+                                                  echo $k->id_kelas==$row['id_kelas']?'selected':'';
+                                                  echo">$k->nama_kelas</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Dari Ruang</label>
+                                        <select name="ke_ruang" class="form-control">
+                                          <option value="">--- Pilih ---</option>
+                                          <?php
+                                          foreach ($ruang as $r) {
+                                            echo "<option value='$r->nama_ruang' ";
+                                            echo $r->nama_ruang==$row['ke_ruang']?'selected':'';
+                                            echo">$r->nama_ruang</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> Dari Kelas</label>
+                                        <select name="ke_kelas" class="form-control">
+                                          <option value="">--- Pilih ---</option>
+                                          <?php
                                           foreach ($kelas as $k) {
-                                            echo "<option value='$k->id_kelas'>$k->nama_kelas</option>";
+                                            echo "<option value='$k->nama_kelas' ";
+                                            echo $k->nama_kelas==$row['ke_kelas']?'selected':'';
+                                            echo">$k->nama_kelas</option>";
                                           }
                                           ?>
                                         </select>
@@ -240,6 +227,13 @@
                                     <div class="form-group">
                                         <label>Jenis Spesialis</label>
                                         <select name="spesialis" class="form-control">
+                                          <?php
+                                          foreach ($spesialis as $s){
+                                                  echo "<option value='$s->id_spesialis' ";
+                                                  echo $s->id_spesialis==$row['id_spesialis']?'selected':'';
+                                                  echo">$s->nama_spesialis</option>";
+                                          }
+                                          ?>
                                           <?php
                                           foreach ($spesialis as $s) {
                                             echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";
@@ -252,7 +246,7 @@
                                     <div class="box-footer">
                                         <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
                                         <?php
-                                          echo anchor('perawat/pasienmasuk','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                          echo anchor('perawat/pasiendipindahkan','Kembali',array('class'=>'btn btn-success btn-sm'));
                                         ?>
                                     </div>
                                   </div>

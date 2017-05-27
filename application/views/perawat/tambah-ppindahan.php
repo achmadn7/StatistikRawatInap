@@ -118,14 +118,10 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <small>Pasien Masuk Ruang Rawat Inap</small>
+                            <small>Pasien Pindahan Ruang Rawat Inap</small>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                          <!-- form start -->
-                          <!-- <?php
-                            form_open('pengelola/spesialis/post');
-                          ?> -->
                           <form method="post" accept-charset="utf-8">
                               <div class="box-body">
                                 <div class="col-lg-12">
@@ -163,7 +159,7 @@
                                     <div class="form-group">
                                       <label>Tanggal</label>
                                       <div class="input-append date form_datetime">
-                                          <input class="form-control" type="text" name="tgl_masuk" value="" readonly>
+                                          <input class="form-control" type="text" name="tgl_pindahan" value="" readonly>
                                           <span class="add-on"><i class="icon-th"></i></span>
                                       </div>
                                     </div>
@@ -230,6 +226,7 @@
                                     <div class="form-group">
                                         <label>Kelas</label>
                                         <select name="kelas" class="form-control">
+                                          <option value="">--- Pilih ---</option>
                                           <?php
                                           foreach ($kelas as $k) {
                                             echo "<option value='$k->id_kelas'>$k->nama_kelas</option>";
@@ -238,8 +235,31 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Dari Ruang</label>
+                                        <select name="dari_ruang" class="form-control">
+                                          <option value="">--- Pilih ---</option>
+                                          <?php
+                                          foreach ($ruang as $r) {
+                                            echo "<option value='$r->nama_ruang'>$r->nama_ruang</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label> Dari Kelas</label>
+                                        <select name="dari_kelas" class="form-control">
+                                          <option value="">--- Pilih ---</option>
+                                          <?php
+                                          foreach ($kelas as $k) {
+                                            echo "<option value='$k->nama_kelas'>$k->nama_kelas</option>";
+                                          }
+                                          ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Jenis Spesialis</label>
                                         <select name="spesialis" class="form-control">
+                                          <option value="">--- Pilih ---</option>
                                           <?php
                                           foreach ($spesialis as $s) {
                                             echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";
@@ -252,7 +272,7 @@
                                     <div class="box-footer">
                                         <button type="submit" name="submit" class="btn btn-success btn-sm">Submit</button>
                                         <?php
-                                          echo anchor('perawat/pasienmasuk','Kembali',array('class'=>'btn btn-success btn-sm'));
+                                          echo anchor('perawat/pasienpindahan','Kembali',array('class'=>'btn btn-success btn-sm'));
                                         ?>
                                     </div>
                                   </div>
