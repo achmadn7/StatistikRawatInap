@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Informasi Statistik Rawat Inap</title>
+    <title>Sistem Informasi Indikator Pelayanan</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url()?>template/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()?>perawat/dashboard">Sistem Informasi Statistik Rawat Inap</a>
+                <a class="navbar-brand" href="<?php echo base_url()?>perawat/dashboard">Sistem Informasi Indikator Pelayanan</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -141,7 +141,7 @@
                                       <tr>
                                           <th>No</th>
                                           <th>No.RM</th>
-                                          <th>Nama Paien</th>
+                                          <th>Nama Pasien</th>
                                           <th>Kelas</th>
                                           <th>Dari Ruang</th>
                                           <th>Dari Kelas</th>

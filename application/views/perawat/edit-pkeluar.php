@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistem Informasi Indikator Pelayanan</title>
+    <title>Sistem Informasi Statistik Rawat Inap</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url()?>template/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -85,7 +85,7 @@
                                 <a href="<?php echo base_url()?>perawat/pasienpindahan">Pasien Pindahan</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url()?>perawat/pasiendipindahkan">Pasien Dipindahkan</a>
+                                <a href="<?php echo base_url()?>perawat/pasiendipindahkan">Pasien Dipindahkkan</a>
                             </li>
                             <li>
                                 <a href="<?php echo base_url()?>perawat/pasienkeluar">Pasien Keluar</a>
@@ -133,10 +133,11 @@
                                     <div class="form-group">
                                       <label>Ruang Rawat Inap</label>
                                       <select name="ruang" class="form-control">
-                                        <option value="">--- Pilih ---</option>
                                         <?php
-                                        foreach ($ruang as $r) {
-                                          echo "<option value='$r->id_ruang'>$r->nama_ruang</option>";
+                                        foreach ($ruang as $r){
+                                                echo "<option value='$r->id_ruang' ";
+                                                echo $r->id_ruang==$row['id_ruang']?'selected':'';
+                                                echo">$r->nama_ruang</option>";
                                         }
                                         ?>
                                       </select>
@@ -145,25 +146,11 @@
                                   </div>
                                 </div>
                                 <div class="col-lg-12">
-                                  <!-- <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label>Hari</label>
-                                        <select name="hari" class="form-control">
-                                          <option value='Senin'>Senin</option>
-                                          <option value='Selasa'>Selasa</option>
-                                          <option value='Rabu'>Rabu</option>
-                                          <option value='Kamis'>Kamis</option>
-                                          <option value='Jumat'>Jum'at</option>
-                                          <option value='Sabtu'>Sabtu</option>
-                                          <option value='Minggu'>Minggu</option>
-                                        </select>
-                                    </div>
-                                  </div> -->
                                   <div class="col-lg-4">
                                     <div class="form-group">
                                       <label>Tanggal Keluar</label>
                                       <div class="input-append date form_datetime">
-                                          <input class="form-control" type="text" name="tgl_keluar" value="" readonly>
+                                          <input class="form-control" type="text" value="<?php echo $row['tgl_keluar'];?>" name="tgl_keluar" value="" readonly>
                                           <span class="add-on"><i class="icon-th"></i></span>
                                       </div>
                                     </div>
@@ -179,28 +166,23 @@
                                   <div class="col-lg-6">
                                     <div class="form-group">
                                       <label>No.RM</label>
-                                      <input class="form-control" name="no_rm" type="text" required>
+                                      <input class="form-control" value="<?php echo $row['no_rm'];?>" name="no_rm" type="text" required>
                                     </div>
                                     <div class="form-group">
                                       <label>Nama Pasien</label>
-                                      <input class="form-control" name="nama_pasien" type="text" required>
+                                      <input class="form-control" value="<?php echo $row['nama_pasien'];?>" name="nama_pasien" type="text" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Kelas</label>
                                         <select name="kelas" class="form-control">
                                           <?php
-                                          foreach ($kelas as $k) {
-                                            echo "<option value='$k->id_kelas'>$k->nama_kelas</option>";
+                                          foreach ($kelas as $k){
+                                                  echo "<option value='$k->id_kelas' ";
+                                                  echo $k->id_kelas==$row['id_kelas']?'selected':'';
+                                                  echo">$k->nama_kelas</option>";
                                           }
                                           ?>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tanggal Masuk</label>
-                                        <div class="input-append date form_datetime">
-                                            <input class="form-control" type="text" name="tgl_masuk" value="" readonly>
-                                            <span class="add-on"><i class="icon-th"></i></span>
-                                        </div>
                                     </div>
                                   </div>
                                   <div class="col-md-12">
@@ -226,19 +208,19 @@
                                             <input type="radio" name="cara_keluar" value="Mati >= 48 J">Mati >= 48 Jam
                                           </label>
                                         </div>
-                                        <!-- <select name="spesialis" class="form-control">
-                                          <?php
-                                          foreach ($spesialis as $s) {
-                                            echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";
-                                          }
-                                          ?>
-                                        </select> -->
                                     </div>
                                   </div>
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Jenis Spesialis</label>
                                         <select name="spesialis" class="form-control">
+                                          <?php
+                                          foreach ($spesialis as $s){
+                                                  echo "<option value='$s->id_spesialis' ";
+                                                  echo $s->id_spesialis==$row['id_spesialis']?'selected':'';
+                                                  echo">$s->nama_spesialis</option>";
+                                          }
+                                          ?>
                                           <?php
                                           foreach ($spesialis as $s) {
                                             echo "<option value='$s->id_spesialis'>$s->nama_spesialis</option>";

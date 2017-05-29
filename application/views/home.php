@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Sistem Informasi Statistik Rawat Inap</title>
+    <title>Sistem Informasi Indikator Pelayanan</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url()?>template/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#">
-                    <i class="fa fa-play-circle"></i> <span class="light">Sistem Informasi</span> Statistik Rawat Inap
+                    <i class="fa fa-play-circle"></i> <span class="light">Sistem Informasi</span> Indikator Pelayanan
                 </a>
             </div>
 
@@ -59,7 +59,7 @@
             </div>
             <div class="col-md-8" style="padding-left: 20px; padding-top: 60px;">
               <span>
-                Sistem Inforwasi Statistik Rawat Inap ialah Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                Sistem Inforwasi Indikator Pelayanan Rawat Inap ialah Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
               </span>
             </div>
             <div class="col-md-2"></div>
@@ -67,7 +67,7 @@
     	    <div class="col-xs-6 col-md-4">
         	    <div class="form-wrap">
                 <h1>Login</h1>
-                
+
                 <form role="form" action="<?php echo base_url()?>home/validasi" method="post">
                   <div class="form-group">
                       <label for="username" class="sr-only">Username</label>
