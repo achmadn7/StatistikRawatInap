@@ -11,8 +11,7 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		{
-			if ($this->session->userdata('level') == 'pengelola')
+		if ($this->session->userdata('level') == 'pengelola') {
 			$data['record']= $this->mod_user->select_all()->result();
 			$this->load->view('pengelola/user',$data);
 		}
