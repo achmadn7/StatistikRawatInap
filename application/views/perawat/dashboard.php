@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>perawat/"><i class="fa fa-spinner" aria-hidden="true"></i> Resume Harian</a>
+                        <a href="<?php echo base_url()?>perawat/resume"><i class="fa fa-spinner" aria-hidden="true"></i> Resume Harian</a>
                     </li>
                 </ul>
             </div>
